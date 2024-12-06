@@ -7,10 +7,13 @@ import {
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Meta, Scripts } from '@tanstack/start'
 import * as React from 'react'
+import { useSession } from 'vinxi/http'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
 import { seo } from '~/utils/seo'
+
+useSession
 
 export const Route = createRootRoute({
   head: () => ({

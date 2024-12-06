@@ -10,6 +10,7 @@ import * as React from 'react'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
+import { explode, explodeAnotherWay } from '~/utils/explode'
 import { seo } from '~/utils/seo'
 
 export const Route = createRootRoute({
@@ -60,6 +61,11 @@ export const Route = createRootRoute({
   },
   notFoundComponent: () => <NotFound />,
   component: RootComponent,
+  beforeLoad: () => {
+    const env = explode() ?? 'client'
+    // const env = explodeAnotherWay()
+    return {env}
+  }
 })
 
 function RootComponent() {

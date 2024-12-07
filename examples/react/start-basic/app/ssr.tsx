@@ -5,7 +5,7 @@ import {
 } from '@tanstack/start/server'
 import { getRouterManifest } from '@tanstack/start/router-manifest'
 
-import { createRouter } from './router'
+import { createRouter } from './server.router'
 
 export default createStartHandler({
   createRouter,

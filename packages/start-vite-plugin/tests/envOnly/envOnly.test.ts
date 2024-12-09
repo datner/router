@@ -77,4 +77,17 @@ describe('envOnly functions compile correctly', async () => {
       })
     }).toThrowError()
   })
+  test('should not error with type casting', () => {
+    expect(() =>{
+    compileStartOutput({
+      env: 'server',
+      code: /* ts */`
+import { serverOnly } from '@tanstack/start'
+export const fn = serverOnly(() => 10) as () => number
+`,
+      root: './test-files',
+      filename: 'type-cast.ts'
+    })
+    }).to.not.throw()
+  })
 })
